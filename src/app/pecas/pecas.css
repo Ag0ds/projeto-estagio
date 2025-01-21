@@ -1,12 +1,11 @@
-/* Estilos globais */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9; /* Fundo claro */
+    background-color: #f9f9f9;
   }
   
   header {
-    background-color: #5B2A86; /* Roxo */
+    background-color: #5B2A86;
     padding: 20px;
     text-align: center;
   }
@@ -15,15 +14,14 @@ body {
     height: 40px;
   }
   
-  /* Container principal */
   .container {
     display: flex;
     height: 100vh;
+    width: 100vw;
   }
   
-  /* Barra Lateral */
   .sidebar {
-    background-color: #f4f4f4;
+    background-color: #F2F2F7;
     width: 250px;
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
@@ -45,15 +43,14 @@ body {
     color: #333;
     display: block;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 20px;
   }
   
   .sidebar ul li.active a {
-    background-color: #5B2A86; /* Roxo */
+    background-color: #5B2A86;
     color: #fff;
   }
   
-  /* Conteúdo Principal */
   .main-content {
     flex: 1;
     padding: 20px;
@@ -73,7 +70,7 @@ body {
   }
   
   .add-button {
-    background-color: #5B2A86;
+    background-color: #070707;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -82,10 +79,9 @@ body {
   }
   
   .add-button:hover {
-    background-color: #4a2370; /* Roxo mais escuro */
+    background-color: #4a2370;
   }
   
-  /* Filtros */
   .filters {
     display: flex;
     justify-content: space-between;
@@ -94,16 +90,15 @@ body {
   }
   
   .filter-tabs .tab {
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
     padding: 10px 20px;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    margin-right: 10px;
     cursor: pointer;
   }
   
   .filter-tabs .tab.active {
-    background-color: #5B2A86; /* Roxo */
+    background-color: #5B2A86;
     color: #fff;
   }
   
@@ -118,21 +113,32 @@ body {
     border-radius: 5px;
   }
   
-  .search-button {
-    background-color: #000;
-    color: #fff;
-    border: none;
+  .search-button,
+  .filter-button {
+    background-color: black;
+    color: white;
     padding: 10px;
     margin-left: 5px;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
   }
+  .table{
+    display: flex;
+  }
   
-  /* Tabela */
+  .table-container {
+    width: 100%; /* Garante que a tabela ocupe toda a largura */
+    overflow-x: auto; /* Adiciona rolagem horizontal para dispositivos menores */
+    justify-content: center; /* Centraliza a tabela */
+  }
+  
   .data-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
+    width: 100%; /* Ocupar toda a largura disponível */
+    max-width: 1200px; /* Define uma largura máxima para telas grandes */
+    min-width: 800px; /* Define uma largura mínima */
+    border-collapse: collapse; /* Remove espaçamentos entre bordas */
+    margin: 0 auto; /* Centraliza a tabela no container */
   }
   
   .data-table thead {
@@ -141,13 +147,17 @@ body {
   
   .data-table th,
   .data-table td {
-    padding: 10px;
-    text-align: left;
     border: 1px solid #ddd;
+    text-align: center;
+    padding: 15px;
+    border-left: none; /* Remove borda à esquerda */
+    border-right: none;
   }
   
-  .data-table th {
-    font-weight: bold;
+
+  
+  .data-table tr:hover {
+    background-color: #f1f1f1;
   }
   
   .status-active {
@@ -155,7 +165,6 @@ body {
     font-weight: bold;
   }
   
-  /* Botão Gerar Imagem */
   .generate-button-container {
     text-align: center;
   }
@@ -167,5 +176,54 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .page-button {
+    background-color: white;
+    color: black;
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .page-button.active {
+    background-color: #5B2A86;
+    color: white;
+  }
+  
+  .page-button:hover {
+    background-color: #ddd;
+  }
+  
+  @media (max-width: 768px) {
+    .data-table {
+      min-width: 600px; /* Define uma largura mínima menor */
+    }
+  
+    .data-table th,
+    .data-table td {
+      font-size: 0.8rem; /* Reduz ainda mais o texto */
+      padding: 6px; /* Espaçamento menor */
+    }
+  
+    .search-bar input {
+      width: 100%; /* Campo de busca ocupa toda a largura */
+    }
+  
+    .add-button,
+    .generate-button {
+      width: 100%; /* Ocupa toda a largura */
+      padding: 12px; /* Ajuste de altura */
+    }
   }
   

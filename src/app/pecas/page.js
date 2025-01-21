@@ -1,79 +1,113 @@
+"use client";
 import "./pecas.css";
-export default function princ(){
-    return(           
-        <div class="container">
-            <aside class="sidebar">
-            <ul>
-                <li class="active">
-                <a href="#">Peças</a>
-                </li>
-                <li>
-                <a href="#">Visualização</a>
-                </li>
-                <li>
-                <a href="#">Clientes</a>
-                </li>
-            </ul>
-            </aside>
+import { useEffect, useState } from "react";
 
-            
-            <main class="main-content">
-            <div class="page-header">
-                <h1>Peças gerais</h1>
-                <button class="add-button">Adicionar peça</button>
+export default function Princ() {
+  const [items, setItems] = useState([]);
+
+  
+  useEffect(() => {
+    const fetchItems = async () => {
+      try {
+        const response = await fetch("/API/produtos");
+        const data = await response.json();
+        setItems(data);
+      } catch (error) {
+        console.error("Erro ao buscar itens:", error);
+      }
+    };
+
+    fetchItems();
+  }, []);
+
+  return (
+    <div className="container">
+      
+      <aside className="sidebar">
+        <ul>
+          <li className="active">
+            <a href="#">Peças</a>
+          </li>
+          <li>
+            <a href="#">Visualização</a>
+          </li>
+          <li>
+            <a href="#">Clientes</a>
+          </li>
+        </ul>
+      </aside>
+
+      
+      <main className="main-content">
+        <div>
+          
+          <div className="page-header">
+            <h1>Peças gerais</h1>
+            <button className="add-button">Adicionar peça</button>
+          </div>
+
+          
+          <div className="filters">
+            <div className="filter-tabs">
+              <button className="tab">Todos ({items.length})</button>
+              <button className="tab active">
+                Ativos ({items.filter((item) => item.status === "Ativo").length})
+              </button>
+              <button className="tab">Expirado (0)</button>
             </div>
-
-            <div class="filters">
-                <div class="filter-tabs">
-                <button class="tab active">Todos (000)</button>
-                <button class="tab">Ativos (0)</button>
-                <button class="tab">Expirado (0)</button>
-                </div>
-                <div class="search-bar">
-                <input type="text" placeholder="Buscar..." />
-                <button class="search-button">🔍</button>
-                </div>
+            <div className="search-bar">
+              <input type="text" placeholder="Buscar..." />
+              <button className="search-button">🔍</button>
+              <button className="filter-button">⚙️</button>
             </div>
+          </div>
 
-            <table class="data-table">
-                <thead>
+          
+          <div className="table">
+            <table className="data-table">
+              <thead>
                 <tr>
-                    <th><input type="radio" disabled /></th>
-                    <th>Key</th>
-                    <th>Tipo</th>
-                    <th>Ordem de exibição</th>
-                    <th>Status</th>
+                  <th>Título</th>
+                  <th>SKU</th>
+                  <th>Tipo</th>
+                  <th>Ordem de exibição</th>
+                  <th>Status</th>
                 </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td><input type="radio" name="select-item" /></td>
-                    <td>Abc-frente-americano-linho-azul_marinho</td>
-                    <td>Americano</td>
-                    <td>05</td>
-                    <td><span class="status-active">Ativo</span></td>
-                </tr>
-                <tr>
-                    <td><input type="radio" name="select-item" /></td>
-                    <td>Abc-frente-americano-linho-azul_marinho</td>
-                    <td>Americano</td>
-                    <td>05</td>
-                    <td><span class="status-active">Ativo</span></td>
-                </tr>
-                <tr>
-                    <td><input type="radio" name="select-item" /></td>
-                    <td>Abc-frente-americano-linho-azul_marinho</td>
-                    <td>Americano</td>
-                    <td>05</td>
-                    <td><span class="status-active">Ativo</span></td>
-                </tr>
-                </tbody>
+              </thead>
+              <tbody>
+                {items.map((item) => (
+                  <tr key={item.id}>
+                    <td>{item.title}</td>
+                    <td>{item.sku}</td>
+                    <td>{item.type}</td>
+                    <td>{item.order}</td>
+                    <td>
+                      <span
+                        className={
+                          item.status === "Ativo"
+                            ? "status-active"
+                            : "status-inactive"
+                        }
+                      >
+                        {item.status}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
             </table>
+          </div>
 
-            <div class="generate-button-container">
-                <button class="generate-button">GERAR IMAGEM</button>
-            </div>
-            </main>
+          <div className="pagination">
+            <button className="page-button">←</button>
+            <button className="page-button active">1</button>
+            <button className="page-button">2</button>
+            <button className="page-button">3</button>
+            <button className="page-button">4</button>
+            <button className="page-button">→</button>
+          </div>
         </div>
-    )
+      </main>
+    </div>
+  );
 }
