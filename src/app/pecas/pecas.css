@@ -1,229 +1,258 @@
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-  }
-  
-  header {
-    background-color: #5B2A86;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .header-logo {
-    height: 40px;
-  }
-  
-  .container {
-    display: flex;
-    height: 100vh;
-    width: 100vw;
-  }
-  
-  .sidebar {
-    background-color: #F2F2F7;
-    width: 250px;
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .sidebar ul li {
-    margin-bottom: 15px;
-  }
-  
-  .sidebar ul li a {
-    text-decoration: none;
-    font-size: 1rem;
-    color: #333;
-    display: block;
-    padding: 10px;
-    border-radius: 20px;
-  }
-  
-  .sidebar ul li.active a {
-    background-color: #5B2A86;
-    color: #fff;
-  }
-  
-  .main-content {
-    flex: 1;
-    padding: 20px;
-    background-color: #fff;
-  }
-  
-  .page-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .page-header h1 {
-    font-size: 1.5rem;
-    color: #333;
-  }
-  
-  .add-button {
-    background-color: #070707;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .add-button:hover {
-    background-color: #4a2370;
-  }
-  
-  .filters {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .filter-tabs .tab {
-    padding: 10px 20px;
-    background-color: #f4f4f4;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .filter-tabs .tab.active {
-    background-color: #5B2A86;
-    color: #fff;
-  }
-  
-  .search-bar {
-    display: flex;
-    align-items: center;
-  }
-  
-  .search-bar input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .search-button,
-  .filter-button {
-    background-color: black;
-    color: white;
-    padding: 10px;
-    margin-left: 5px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  .table{
-    display: flex;
-  }
-  
-  .table-container {
-    width: 100%; /* Garante que a tabela ocupe toda a largura */
-    overflow-x: auto; /* Adiciona rolagem horizontal para dispositivos menores */
-    justify-content: center; /* Centraliza a tabela */
-  }
-  
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+header {
+  background-color: #5B2A86;
+  padding: 20px;
+  text-align: center;
+}
+
+.header-logo {
+  height: 40px;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+.sidebar {
+  background-color: #F2F2F7;
+  width: 250px;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  font-size: 1rem;
+  color: #333;
+  display: block;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.sidebar ul li.active a {
+  background-color: #5B2A86;
+  color: #fff;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.page-header h1 {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.add-button {
+  background-color: #070707;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-button:hover {
+  background-color: #4a2370;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.filter-tabs .tab {
+  padding: 10px 20px;
+  background-color: #f4f4f4;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.filter-tabs .tab.active {
+  background-color: #5B2A86;
+  color: #fff;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-button {
+  background-color: transparent;
+  color: white;
+  padding: 10px;
+  margin-left: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.filter-button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.table {
+  display: flex;
+}
+
+.table-container {
+  width: 100%;
+
+  overflow-x: auto;
+
+  justify-content: center;
+
+}
+
+.data-table {
+  width: 100%;
+
+  max-width: 1200px;
+
+  min-width: 800px;
+
+  border-collapse: collapse;
+
+  margin: 0 auto;
+ 
+}
+
+.data-table thead {
+  background-color: #f4f4f4;
+}
+
+.data-table th,
+.data-table td {
+  border: 1px solid #ddd;
+  text-align: center;
+  padding: 15px;
+  border-left: none;
+  /* Remove borda à esquerda */
+  border-right: none;
+}
+
+
+
+.data-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.status-active {
+  color: green;
+  font-weight: bold;
+}
+
+.status-inactive {
+  color: red;
+  font-weight: bold;
+}
+
+.generate-button-container {
+  text-align: center;
+}
+
+.generate-button {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.page-button {
+  background-color: white;
+  color: black;
+  border: 1px solid #ddd;
+  padding: 10px 15px;
+  margin: 0 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.page-button.active {
+  background-color: #5B2A86;
+  color: white;
+}
+
+.page-button:hover {
+  background-color: #ddd;
+}
+
+@media (max-width: 768px) {
   .data-table {
-    width: 100%; /* Ocupar toda a largura disponível */
-    max-width: 1200px; /* Define uma largura máxima para telas grandes */
-    min-width: 800px; /* Define uma largura mínima */
-    border-collapse: collapse; /* Remove espaçamentos entre bordas */
-    margin: 0 auto; /* Centraliza a tabela no container */
+    min-width: 600px;
+    /* Define uma largura mínima menor */
   }
-  
-  .data-table thead {
-    background-color: #f4f4f4;
-  }
-  
+
   .data-table th,
   .data-table td {
-    border: 1px solid #ddd;
-    text-align: center;
-    padding: 15px;
-    border-left: none; /* Remove borda à esquerda */
-    border-right: none;
+    font-size: 0.8rem;
+    /* Reduz ainda mais o texto */
+    padding: 6px;
+    /* Espaçamento menor */
   }
-  
 
-  
-  .data-table tr:hover {
-    background-color: #f1f1f1;
+  .search-bar input {
+    width: 100%;
+    /* Campo de busca ocupa toda a largura */
   }
-  
-  .status-active {
-    color: green;
-    font-weight: bold;
-  }
-  
-  .generate-button-container {
-    text-align: center;
-  }
-  
+
+  .add-button,
   .generate-button {
-    background-color: #000;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    width: 100%;
+    /* Ocupa toda a largura */
+    padding: 12px;
+    /* Ajuste de altura */
   }
-  
-  .pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    flex-wrap: wrap;
-  }
-  
-  .page-button {
-    background-color: white;
-    color: black;
-    border: 1px solid #ddd;
-    padding: 10px 15px;
-    margin: 0 5px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .page-button.active {
-    background-color: #5B2A86;
-    color: white;
-  }
-  
-  .page-button:hover {
-    background-color: #ddd;
-  }
-  
-  @media (max-width: 768px) {
-    .data-table {
-      min-width: 600px; /* Define uma largura mínima menor */
-    }
-  
-    .data-table th,
-    .data-table td {
-      font-size: 0.8rem; /* Reduz ainda mais o texto */
-      padding: 6px; /* Espaçamento menor */
-    }
-  
-    .search-bar input {
-      width: 100%; /* Campo de busca ocupa toda a largura */
-    }
-  
-    .add-button,
-    .generate-button {
-      width: 100%; /* Ocupa toda a largura */
-      padding: 12px; /* Ajuste de altura */
-    }
-  }
-  
+}

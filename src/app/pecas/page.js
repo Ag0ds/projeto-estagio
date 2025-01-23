@@ -1,10 +1,14 @@
 "use client";
 import "./pecas.css";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Princ() {
   const [items, setItems] = useState([]);
-
+  const router = useRouter();
+  const handleRedirect = () => {
+    router.push("/pecas/new");
+  };
   
   useEffect(() => {
     const fetchItems = async () => {
@@ -43,7 +47,7 @@ export default function Princ() {
           
           <div className="page-header">
             <h1>Peças gerais</h1>
-            <button className="add-button">Adicionar peça</button>
+            <button className="add-button" onClick={handleRedirect}>Adicionar peça</button>
           </div>
 
           
@@ -75,25 +79,23 @@ export default function Princ() {
                 </tr>
               </thead>
               <tbody>
-                {items.map((item) => (
-                  <tr key={item.id}>
-                    <td>{item.title}</td>
-                    <td>{item.sku}</td>
-                    <td>{item.type}</td>
-                    <td>{item.order}</td>
-                    <td>
-                      <span
-                        className={
-                          item.status === "Ativo"
-                            ? "status-active"
-                            : "status-inactive"
-                        }
-                      >
-                        {item.status}
-                      </span>
-                    </td>
-                  </tr>
-                ))}
+              {items.map((item) => (
+                <tr key={item.id}>
+                  <td>{item.nome_modelo}</td>
+                  <td>{item.sku}</td>
+                  <td>{item.tipo_recorte}</td>
+                  <td>{item.ordem_exibicao}</td>
+                  <td>
+                    <span
+                      className={
+                        item.status === "Ativo" ? "status-active" : "status-inactive"
+                      }
+                    >
+                      {item.status}
+                    </span>
+                  </td>
+                </tr>
+              ))}
               </tbody>
             </table>
           </div>

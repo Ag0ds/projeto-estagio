@@ -1,32 +1,37 @@
-import { NextResponse } from "next/server";
-
-const produtos = [
-  {
-    id: 1,
-    title: "Aba-frente-americano-linho-azul_marinho",
-    sku: "#123",
-    type: "Americano",
-    order: "05",
-    status: "Ativo",
-  },
-  {
-    id: 2,
-    title: "Modelo São Paulo",
-    sku: "#456",
-    type: "Brasileiro",
-    order: "03",
-    status: "Ativo",
-  },
-  {
-    id: 3,
-    title: "Modelo ",
-    sku: "#555",
-    type: "Brasileiro",
-    order: "03",
-    status: "Ativo",
-  },
-];
+import { query } from '../../lib/db';
 
 export async function GET() {
-  return NextResponse.json(produtos);
+    try {
+        const produtos = await query({ query: 'SELECT * FROM produtos' });
+        return new Response(JSON.stringify(produtos), {
+            status: 200,
+            headers: { 'Content-Type': 'application/json' },
+        });
+    } catch (error) {
+        return new Response(
+            JSON.stringify({ message: 'Erro ao buscar produtos.', error }),
+            { status: 500 }
+        );
+    }
+}
+
+export async function POST(req) {
+    try {
+        const body = await req.json();
+        const { nome_modelo, ordem_exibicao, sku, tipo_recorte, posicao, tipo_produto, material, cor_material, link_cloud } = body;
+
+        const result = await query({
+            query: `
+                INSERT INTO produtos (nome_modelo, ordem_exibicao, sku, tipo_recorte, posicao, tipo_produto, material, cor_material, link_cloud) 
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+            values: [nome_modelo, ordem_exibicao, sku, tipo_recorte, posicao, tipo_produto, material, cor_material, link_cloud],
+        });
+
+        return new Response(JSON.stringify({ message: 'Produto criado!', result }), { status: 201 });
+    } catch (error) {
+        return new Response(
+            JSON.stringify({ message: 'Erro ao criar produto.', error }),
+            { status: 500 }
+        );
+    }
 }
